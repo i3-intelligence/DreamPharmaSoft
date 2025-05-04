@@ -51,7 +51,7 @@ $query = $conn->prepare("UPDATE `controller_information` SET `LastLogin` = '$Cur
 $query->execute();
 
 session_write_close();
-header("location: Dashboard.php");
+header("location: ../views/Dashboard.php");
 exit();
 
 }else{
