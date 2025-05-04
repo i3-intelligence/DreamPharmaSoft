@@ -1,7 +1,7 @@
 
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
   <div class="container">
-    <a href="home.php" class="navbar-brand">
+    <a href="Dashboard.php" class="navbar-brand">
       <!-- <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
       <span class="brand-text font-weight-light"><?php print $Development; ?></span>
     </a>
@@ -15,28 +15,18 @@
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="added.php" class="nav-link <?= ($ActivePage == 'added') ? 'active':''; ?>">Added Menu</a>
+          <a href="Added.php" class="nav-link <?php print ($ActivePage == 'Added') ? 'active':''; ?>">Added Menu</a>
         </li>
         <li class="nav-item">
-          <a href="Receive.php" class="nav-link <?= ($ActivePage == 'Receive') ? 'active':''; ?>">Receive Menu</a>
+          <a href="Receive.php" class="nav-link <?php print ($ActivePage == 'Receive') ? 'active':''; ?>">Receive Menu</a>
         </li>
 
         <li class="nav-item">
-          <a href="Payment.php" class="nav-link <?= ($ActivePage == 'Payment') ? 'active':''; ?>">Payment Menu</a>
+          <a href="Payment.php" class="nav-link <?php print ($ActivePage == 'Payment') ? 'active':''; ?>">Payment Menu</a>
         </li>
 
-
         <li class="nav-item">
-          <a href="ChallanSales.php" class="nav-link <?= ($ActivePage == 'ChallanSales') ? 'active':''; ?>">Challan/Sales Menu</a>
-        </li>
-        
-        <li class="nav-item">
-          <a href="Return.php" class="nav-link <?= ($ActivePage == 'Return') ? 'active':''; ?>">Return Menu</a>
-        </li>
-
-
-        <li class="nav-item">
-          <a href="Report.php" class="nav-link <?= ($ActivePage == 'report') ? 'active':''; ?>">Report</a>
+          <a href="Report.php" class="nav-link <?php print ($ActivePage == 'report') ? 'active':''; ?>">Report</a>
         </li>
 
 
@@ -66,7 +56,7 @@
                   <div class="row">
                     <div class="col-7">
                     
-                      <p class="text-muted text-sm"><b>Designation: </b> <?php print $operator_designation; ?> </p>
+                      <p class="text-muted text-sm"><b>Designation: </b> <?php print $OperatorDesignation; ?> </p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> <?php print $operator_address; ?></li>
                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-Phone"></i></span><?php print $operator_phone; ?></li>
@@ -75,7 +65,7 @@
                     
                     </div>
                     <div class="col-5 text-center">
-                      <img src="<?php print $operator_picture; ?>" alt="User image" class="img-circle img-fluid">
+                      <img src="<?php print $OperatorPicture; ?>" alt="User image" class="img-circle img-fluid">
                     </div>
                   </div>
         
@@ -84,7 +74,7 @@
                   <div class="text-right">
                 
                     <a  class="btn btn-primary" data-toggle="modal" data-target="#modal-lg" Title="User Information View/Update" >Change </a>
-                     <a  class="btn btn-danger"  href="logout.php">Sign out</a>
+                     <a  class="btn btn-danger"  href="../actions/logout.php">Sign out</a>
                   </div>
                 </div>
              

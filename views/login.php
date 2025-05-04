@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="en">
 <?php
-include("../config/database.php"); // Database Connection
-include("../includes/session.php"); // Session Starting file
+include '../config/database.php';// Database Connection
+include '../includes/session.php';// Session Starting file
+if (!isset($_SESSION['CSRF'])) {
+    $_SESSION['CSRF'] = bin2hex(random_bytes(32)); // Generate a new CSRF token if it doesn't exist
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -64,7 +67,7 @@ include("../includes/session.php"); // Session Starting file
                     <label for="" class="block mt-6 text-xl text-gray-700 text-center font-semibold">
                     <?php print $Development; ?> (Control Panel)</label>
                     <form role="form" action="../actions/loginExecute.php" method="post">
-                    <input type="hidden" name="CSRF_token" value="<?= $_SESSION['CSRF'] ?>">
+                    <input type="hidden" name="CSRF_token" value="<?php print $_SESSION['CSRF']; ?>">
                         <div>
                             <input type="text" placeholder="User" required name="User"
                                 class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" value="<?php if(!empty($_COOKIE['User'])){ print $_COOKIE['User']; }?>">
@@ -76,8 +79,8 @@ include("../includes/session.php"); // Session Starting file
                         </div>
 
                         <div class="mt-7">
-                            <input type="checkbox" <?php if(!empty($_COOKIE['User']) && !empty($_COOKIE['Password'])){ print "Checked"; } ?> name="remember" id="remember" class="inline-block mr-2">
-                            <label for="remember" class="text-sm text-gray-900">
+                            <input type="checkbox" <?php if(!empty($_COOKIE['User']) && !empty($_COOKIE['Password'])){ print "Checked"; } ?> name="reFetchLoginData" id="reFetchLoginData" class="inline-block mr-2">
+                            <label for="reFetchLoginData" class="text-sm text-gray-900">
                                 Remember Me
                             </label>
                          

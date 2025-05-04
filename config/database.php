@@ -23,16 +23,16 @@ if(!empty($_SESSION['DPS_ADMIN_SSN_ID']))
 		$query1 = $conn->prepare("SELECT * FROM `controller_information` 
 		 WHERE `id` = '".$_SESSION['DPS_ADMIN_SSN_ID']."' "); 
 		$query1->execute();
-		$Fetch_UserInfo = $query1->fetch(PDO::FETCH_ASSOC);
+		$FetchUserInfo = $query1->fetch(PDO::FETCH_ASSOC);
 
 		$SessionID = $_SESSION['DPS_ADMIN_SSN_ID'];
-		$OperatorName = $Fetch_UserInfo['UserName'];
-		$operator_designation = $Fetch_UserInfo['Designation'];
-		$operator_address = $Fetch_UserInfo['Address'];
-		$operator_phone = $Fetch_UserInfo['Phone'];
-		$operator_picture = $Fetch_UserInfo['Picture'];
-		$EditAccess = $Fetch_UserInfo['EditAccess'];
-		$DeleteAccess = $Fetch_UserInfo['DeleteAccess'];
+		$OperatorName = $FetchUserInfo['UserName'];
+		$OperatorDesignation = $FetchUserInfo['Designation'];
+		$operator_address = $FetchUserInfo['Address'];
+		$operator_phone = $FetchUserInfo['Phone'];
+		$OperatorPicture = $FetchUserInfo['Picture'];
+		$EditAccess = $FetchUserInfo['EditAccess'];
+		$DeleteAccess = $FetchUserInfo['DeleteAccess'];
 
 		
 		$LastUpdate = $OperatorName . ' Date: ' . date("d-M-Y") . ' Time: ' . date("h:i:s a") .' IP ' . $_SERVER['REMOTE_ADDR'];
@@ -49,7 +49,7 @@ $currency = "BDT";
 $currency_sym = "Tk";
 $NumberValidity = "onfocus=\"if(this.value == '0') { this.value = ''; }\" onblur=\"if(this.value == '') { this.value = '0'; }\" oninput=\"this.value = this.value.replace(/[^-0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');\" ";
 $c_logo = "dist/img/logo.png";
-$i3_define_date = "2023-01-01";
+$CreateDate = "2023-01-01";
 $maintenance = "01883008651";
 $quantity = "Quantity";
 $AutoComplete = "AutoComplete=\"off\"";

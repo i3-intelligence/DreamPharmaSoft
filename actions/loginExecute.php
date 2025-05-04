@@ -46,13 +46,13 @@ if(!empty($_POST['reFetchLoginData'])){
     setcookie('Password','',time()-1);
     // print "Cookie Destroy";
 }
+
 //Update Last Login
 $query = $conn->prepare("UPDATE `controller_information` SET `LastLogin` = '$CurrentDateTime',`Token` = '$_SESSION[Token]'  WHERE `Id` = '".$_SESSION['DPS_ADMIN_SSN_ID']."'");
 $query->execute();
 
 session_write_close();
 header("location: ../views/Dashboard.php");
-exit();
 
 }else{
     //Login failed

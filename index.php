@@ -7,6 +7,6 @@ if (!isset($_SESSION['CSRF'])) {
 }
 // print $_SESSION['CSRF'];
 
-header("Location: views/login.php");
+header("Location: views/login.php?notify=login");
 exit();
 ?>

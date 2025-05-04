@@ -1,6 +1,8 @@
 <?php
 require_once '../includes/auth.php'; // Session Starting file
 include '../config/database.php'; // Database connection file
+ print $_COOKIE['User'];
+ print $_COOKIE['Password'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +12,7 @@ include '../config/database.php'; // Database connection file
 
 
   <!-- Navbar -->
-  <?php include("Navbar.php"); ?>
+  <?php include 'Navbar.php'; ?>
 
 
 
@@ -39,46 +41,6 @@ include '../config/database.php'; // Database connection file
       <div class="container-fluid">
 
 
-<div class="row">
-<div class="col-md-6">
-<div class="card">
-<div class="card-header">
-<h3 class="card-title">Today User Access </h3>
-</div>
-
-<div class="card-body p-0">
-<table class="table table-sm">
-<thead>
-  <tr>
-    <th>User Name</th>
-    <th>Start Access </th>
-    <th>Last Access</th>
-  </tr>
-</thead>
-<tbody>
-  <?php
-  $query = $conn->prepare("SELECT A.`id`,A.`UserName`,`start_access`,B.`last_access` FROM `controller_information` A 
-  LEFT JOIN (SELECT `UserId`,MAX(`time`) AS `last_access`,MIN(`CurrentDateTime`) AS `start_access` FROM `AccessLog` WHERE `date` = '$CurrentDate' GROUP BY `UserId`) B ON (A.`id` = B.`UserId`)
-  WHERE A.`block` = 'No' ORDER BY B.`last_access` DESC");
-  $query->execute();
-  $fetch_data = $query->fetchAll(PDO::FETCH_ASSOC);
-  foreach($fetch_data AS $fetch){
-  ?>
-             <tr>
-              <td><?php print $fetch['id']; ?> - <?php print $fetch['UserName']; ?></td>
-              <td><?php if(!empty($fetch['start_access'])){ print date("h:i:s a",strtotime($fetch['start_access'])); }else{ print "<span class=\"badge bg-danger\">No Acccess Found</span>"; } ?></td>
-              <td><?php if(!empty($fetch['last_access'])){ print date("h:i:s a",strtotime($fetch['last_access'])); } ?></td>
-<?php } ?>
-</tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 
       </div><!--/. container-fluid -->
     </section>
@@ -89,17 +51,17 @@ include '../config/database.php'; // Database connection file
   <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
-      <?php include("SideBar.php"); ?>
+      <?php include 'SideBar.php'; ?>
     </aside>
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-<?php include("footer.php");?>
+<?php include 'footer.php';?>
 </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-<?php include("RequiredFotterContex.php");?>
+<?php include '../views/RequiredFotterContex.php';?>
 
 </body>
 </html>
