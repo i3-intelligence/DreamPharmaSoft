@@ -2,7 +2,7 @@
 include '../config/database.php';
 include '../includes/session.php';
 
-if ($_POST['csrf_token'] !== $_SESSION['csrf']) {
+if ($_POST['CSRF_token'] !== $_SESSION['CSRF']) {
     die("CSRF token mismatch!");
 }
 
