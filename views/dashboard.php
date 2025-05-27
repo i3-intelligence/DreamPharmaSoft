@@ -1,8 +1,6 @@
 <?php
 require_once '../includes/auth.php'; // Session Starting file
 include '../config/database.php'; // Database connection file
- print $_COOKIE['User'];
- print $_COOKIE['Password'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

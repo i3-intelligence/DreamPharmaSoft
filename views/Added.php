@@ -54,16 +54,16 @@ include '../actions/MenuPermission.php';
                 <div class="clearfix hidden-md-up"></div>
                 <?php if (MenuPermission('2', $conn, $SessionID) == 1) { ?>
                 <div class="col-md-3">
-                  <a href="SupplierCategory.php" class="card card-primary">
+                  <a href="Package.php" class="card card-primary">
                     <div class="card-header">
                       <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Supplier Category View</h3>
+                        <span class="material-icons">local_offer</span> Package View</h3>
 
                       <!-- /.card-tools -->
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      Total Active Supplier Category <?php Print $ActiveCount; ?>
+                      Total Active Package <?php Print $ActiveCount; ?>
                     </div>
                     <!-- /.card-body -->
                   </a>
@@ -72,135 +72,6 @@ include '../actions/MenuPermission.php';
                 <!-- /.col -->
                 <?php } ?>
 
-
-
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <?php if (MenuPermission('6', $conn, $SessionID) == 1) { ?>
-
-                <div class="col-md-3">
-                  <a href="CustomerCategory.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Customer Category View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Customer Category <?php Print $ActiveCount; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-                <?php } ?>
-
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <?php if (MenuPermission('7', $conn, $SessionID) == 1) { ?>
-
-                <div class="col-md-3">
-                  <a href="CustomerSubCategory.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Customer Sub Category View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Customer Sub Category <?php Print $ActiveCount; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-                <?php } ?>
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <?php if (MenuPermission('8', $conn, $SessionID) == 1) { ?>
-
-                <div class="col-md-3">
-                  <a href="Customer.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Customer View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Customer <?php Print $ActiveCount; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-                <?php } ?>
-
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <?php if (MenuPermission('9', $conn, $SessionID) == 1) { ?>
-
-                <div class="col-md-3">
-                  <a href="PurchaseRate.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Purchase Rate Setup</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Purchase Rate <?php Print $ActiveCount; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-                <?php } ?>
-
-              </div>
-
-              <!-- Info boxes -->
-              <div class="row">
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <?php if(MenuPermission('10',$conn,$SessionID) == 1){ ?>
-                  
-                <div class="col-md-3">
-                  <a href="SalesRate.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Sales Rate Setup</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Sales Rate <?php Print $ActiveCount; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-                <?php } ?>
               </div>
               <!-- /.row -->
 

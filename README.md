@@ -16,6 +16,7 @@
 ├── includes/
 │   ├── auth.php            # Authentication logic
 │   ├── session.php         # Session handling
+│   ├── AccessLog.php       # Access Log
 │
 ├── views/
 │   ├── header.php footer.php
