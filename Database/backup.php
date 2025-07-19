@@ -1,25 +1,30 @@
 <?php
-$host = 'localhost';
-$user = 'root'; // or your DB username
-$pass = '';     // or your DB password
-$dbName = 'pharmacy';
+header('Content-Type: application/json');
 
-$backupDir = 'backups';
+$host = '127.0.0.1'; // Use IP, not 'localhost'
+$port = 3307;         // Your new MySQL port
+$user = 'root';
+$pass = '';           // empty password
+$db = 'pharmacy';
+
+$backupDir = __DIR__ . '/backups';
 if (!file_exists($backupDir)) {
-    mkdir($backupDir, 0777, true);
+    mkdir($backupDir, 0755, true);
 }
 
-$timestamp = date('d-m-y__h-i-A'); // Format: 05-12-25__02-30-PM
-$backupFile = $backupDir . '/' . $timestamp . '.sql';
-$mysqldump = 'D:\Server\\mysql\\bin\\mysqldump.exe';
+// Path to mysqldump.exe (use forward slashes)
+$mysqldump = 'E:/Server/mysql/bin/mysqldump.exe';
 
-$command = "\"$mysqldump\" --user=$user --password=$pass --host=$host $dbName > \"$backupFile\"";
+$filename = $backupDir . '/' . $db . '_backup_' . date('Y-m-d_H-i-s') . '.sql';
 
-exec($command, $output, $result);
+// Include port with -P flag
+$cmd = "\"$mysqldump\" -h $host -P $port -u $user " . ($pass === '' ? '' : "-p$pass ") . "$db > " . escapeshellarg($filename);
+
+// Execute backup
+exec($cmd, $output, $result);
 
 if ($result === 0) {
-    echo json_encode(['status' => 'success', 'message' => 'Backup created successfully.']);
+    echo json_encode(['status' => 'success', 'message' => 'Backup completed successfully.']);
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Backup failed.']);
+    echo json_encode(['status' => 'error', 'message' => 'Backup failed.', 'output' => $output]);
 }
-?>
