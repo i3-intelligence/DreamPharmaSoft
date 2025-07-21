@@ -63,7 +63,7 @@ include '../actions/MenuPermission.php';
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      Total Active Package <?php Print $ActiveCount; ?>
+                      Total Active Package <?php Print $ActivePackage; ?>
                     </div>
                     <!-- /.card-body -->
                   </a>

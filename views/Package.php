@@ -1,13 +1,11 @@
 <?php
 require_once '../includes/auth.php'; // Session Starting file
 include '../config/database.php'; // Database connection file
-include '../actions/Count.php'; // Count Active Data
-//CAll Permission
-include '../actions/MenuPermission.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include("header.php"); ?>
+<?php include 'header.php'; ?>
+
 
 
 <body class="hold-transition layout-top-nav">
@@ -28,11 +26,11 @@ include '../actions/MenuPermission.php';
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1" data-backdrop='static' data-keyboard='false'
-                  data-whatever="SupplierCategory">Add New</button></li>
-                  <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                  <li class="breadcrumb-item"><a href="added.php">Added Menu</a></li>
-                  <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
+                <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1"
+          data-whatever="Package">ADD NEW</button></li>
+                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="added.php">Added Menu</a></li>
+                <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -45,12 +43,13 @@ include '../actions/MenuPermission.php';
           <!-- Info boxes -->
           <div class="card card-default">
 
+
             <div class="card">
     
               <!-- /.card-header -->
-              <div class="card-body" id="LoadCartList">
+              <div class="card-body" id="LoadCart_list">
             
-                <?php include("SupplierCategoryList.php"); ?>
+                <?php include("PackageList.php"); ?>
                
               </div>
               <!-- /.card-body -->
@@ -85,10 +84,9 @@ include '../actions/MenuPermission.php';
       </div>
     </div>
 <!-- Custom JS -->
-<script src="InsertJS.js"></script>
-<script src="UpdateJS.js"></script>
 
-
+<script src="../views/Insert.JS"></script>
+<script src="../views/Update.JS"></script>
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
@@ -97,38 +95,36 @@ include '../actions/MenuPermission.php';
 
     <!-- Main Footer -->
     <?php 
-include 'footer.php';
-include '../includes/AccessLog.php';
-?>
+    include("footer.php");
+    ?>
   </div>
   <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
-  <?php include '../views/RequiredFotterContex.php';?>
+<!-- REQUIRED SCRIPTS -->
+<?php include '../views/RequiredFotterContex.php';?>
 </body>
 <script>
-  $('#SupplierCategoryView').DataTable({
+  $('#PackageView').DataTable({
     "fnCreatedRow": function(nRow, aData, iDataIndex) {
       $(nRow).attr('id', aData[0]);
     },
     'serverSide': 'true',
     'processing': 'true',
-    'responsive': 'true',
     'paging': 'true',
     'order': [],
     'ajax': {
-      'url': 'SupplierCategoryViewDataCall.php',
+      'url': '../actions/PackageViewDataCall.php',
       'type': 'post',
     },
     "aoColumnDefs": [{
         "bSortable": false,
-        "aTargets": [3]
+        "aTargets": [5]
       },
 
     ]
   });
 
-  //PackageAdd
+  //Package Add
       $('#modal-default1').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var ID = button.data('whatever') // Extract info from data-* attributes
@@ -136,13 +132,13 @@ include '../includes/AccessLog.php';
         var dataString = 'id=' + ID;
         modal.find('.dash').html('');
 
-        if(ID =='SupplierCategory'){
+        if(ID =='Package'){
 
           modal.find('.modal-title').text('Package Add');
        
         $.ajax({
           type: "GET",
-          url: "ModalSupplierCategoryInsert.php",
+          url: "../views/ModalPackageInsert.php",
           data: dataString,
           cache: false,
           success: function (data) {
@@ -154,12 +150,12 @@ include '../includes/AccessLog.php';
           }
         });
 
-      }else if (ID !='SupplierCategory'){
+      }else if (ID !='Package'){
 
           modal.find('.modal-title').text('Package Update');
           $.ajax({
           type: "GET",
-          url: "ModalSupplierCategoryUpdate.php",
+          url: "../views/ModalPackageUpdate.php",
           data: dataString,
           cache: false,
           success: function (data) {
