@@ -3,7 +3,7 @@
 // Database Configuration Local
 $prefix = "nuralam_"; // For online/offline prefixing (optional)
 $servername = "localhost";
-$username = $prefix . "pms";//Pharmacy Management System
+$username = $prefix . "pms"; //Pharmacy Management System
 $password = "f[bL8Wu1VA7yPK1]"; // lowercase for consistency
 $database = $prefix . "pharma";
 
