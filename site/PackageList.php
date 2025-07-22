@@ -1,4 +1,3 @@
-
 <?php 
 // Db Connection
 include("../admin/config/database.php");
