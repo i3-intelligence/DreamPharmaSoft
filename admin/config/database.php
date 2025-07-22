@@ -3,7 +3,7 @@
 // Database Configuration Local
 $prefix = "nuralam_"; // For online/offline prefixing (optional)
 $servername = "localhost";
-$username = $prefix . "root";
+$username = $prefix . "pms";//Pharmacy Management System
 $password = "f[bL8Wu1VA7yPK1]"; // lowercase for consistency
 $database = $prefix . "pharma";
 
@@ -59,5 +59,5 @@ $CurrentDateTime = date("Y-m-d H:i:s");
 
 $Development = "Dream Pharma Soft";
 $DevelopmentLink = "https://www.facebook.com/shafayetnuralam";
-print $PHPVersion = phpversion();
+$PHPVersion = phpversion();
 ?>
