@@ -59,5 +59,5 @@ $CurrentDateTime = date("Y-m-d H:i:s");
 
 $Development = "Dream Pharma Soft";
 $DevelopmentLink = "https://www.facebook.com/shafayetnuralam";
-$PHPVersion = phpversion();
+print $PHPVersion = phpversion();
 ?>
