@@ -10,7 +10,7 @@ include('head.php');
 <div class="head-cover">
 <?php 
 // Header
-include('header.php');
+include('Header.php');
 ?>  
     </div>
    
@@ -221,7 +221,7 @@ include('header.php');
 
 <?php 
 // Footer
-include('footer.php');
+include('Footer.php');
 ?>
 </body>
 

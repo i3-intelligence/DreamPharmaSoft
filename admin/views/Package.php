@@ -4,7 +4,7 @@ include '../config/database.php'; // Database connection file
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php'; ?>
+<?php include 'Header.php'; ?>
 
 
 
@@ -95,7 +95,7 @@ include '../config/database.php'; // Database connection file
 
     <!-- Main Footer -->
     <?php 
-    include("footer.php");
+    include("Footer.php");
     ?>
   </div>
   <!-- ./wrapper -->

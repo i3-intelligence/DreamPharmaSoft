@@ -4,7 +4,7 @@ include '../config/database.php'; // Database connection file
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php'; ?>
+<?php include 'Header.php'; ?>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
 
@@ -54,7 +54,7 @@ include '../config/database.php'; // Database connection file
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-<?php include 'footer.php';?>
+<?php include 'Footer.php';?>
 </div>
 <!-- ./wrapper -->
 

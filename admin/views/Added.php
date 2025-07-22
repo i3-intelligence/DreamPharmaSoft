@@ -7,7 +7,7 @@ include '../actions/MenuPermission.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'header.php';?>
+<?php include 'Header.php';?>
 
 <body class="hold-transition layout-top-nav">
   <div class="wrapper">
@@ -95,7 +95,7 @@ include '../actions/MenuPermission.php';
 
     <!-- Main Footer -->
     <?php 
-include 'footer.php';
+include 'Footer.php';
 include '../includes/AccessLog.php';
 ?>
   </div>

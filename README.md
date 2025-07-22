@@ -19,7 +19,7 @@
 │   ├── AccessLog.php       # Access Log
 │
 ├── views/
-│   ├── header.php footer.php
+│   ├── Header.php Footer.php
 │   ├── login.php register.php Dashboard.php
 │
 ├── actions/
@@ -49,3 +49,9 @@
 > 	6.Purchase Product (5)
 > 	7.Purchase Product  Return(6)
 > 	8.Purchase Product  Return(7)
+
+
+**GIT **
+cd /home/nuralam/dream.nuralam.online
+git fetch origin
+git reset --hard origin/main

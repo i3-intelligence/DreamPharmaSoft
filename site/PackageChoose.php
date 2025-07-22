@@ -14,7 +14,7 @@ include('head.php');
     <div class="head-cover">
         <?php 
 // Header
-include('header.php');
+include('Header.php');
 ?>
     </div>
 <?php
@@ -160,7 +160,7 @@ $FetchData = $Quary->fetch(PDO::FETCH_ASSOC);
 </script>
 <?php 
 // Footer
-include('footer.php');
+include('Footer.php');
 ?>
 
 
