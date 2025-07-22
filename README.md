@@ -55,3 +55,16 @@
 cd /home/nuralam/dream.nuralam.online
 git fetch origin
 git reset --hard origin/main
+
+Automate deployment with correct permissions
+Make sure your /home/nuralam/deploy.sh has:
+
+#!/bin/bash
+cd /home/nuralam/dream.nuralam.online || exit
+git reset --hard
+git pull origin main
+chown -R nuralam:nuralam /home/nuralam/dream.nuralam.online
+
+Make it executable:
+chmod +x /home/nuralam/deploy.sh
+
