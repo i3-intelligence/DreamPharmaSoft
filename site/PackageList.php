@@ -5,7 +5,7 @@ include("../admin/config/database.php");
 ?>
            <div class="row mt-5 feature-row">
            <?php
-           $Quary = $conn->prepare("SELECT * FROM `Package` WHERE `Status` = 'Active' ORDER BY `PacakageAmount` ASC");
+           $Quary = $conn->prepare("SELECT * FROM `package` WHERE `Status` = 'Active' ORDER BY `PacakageAmount` ASC");
            $Quary->execute();
            $FetchData = $Quary->fetchAll(PDO::FETCH_ASSOC);
               foreach ($FetchData as $Fetch) {
