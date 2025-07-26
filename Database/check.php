@@ -1,10 +1,10 @@
 <?php
 $mysqldump = "E:/Server/mysql/bin/mysqldump.exe";  // Use forward slashes or double backslashes
 $host = '127.0.0.1';       // Use IP instead of localhost
-$port = 3307;              // Your custom MySQL port
+$port = 3306;              // Your custom MySQL port
 $user = 'root';
 $pass = '';                // your DB password (empty if none)
-$db = 'pharmacy';
+$db = 'nuralam_pharma';
 
 // Create a temporary filename for test backup
 $tempFile = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'test_backup.sql';

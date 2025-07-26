@@ -2,8 +2,6 @@
 require_once '../includes/Auth.php'; // Session Starting file
 include '../config/Database.php'; // Database connection file
 include '../actions/Count.php'; // Count Active Data
-//CAll Permission
-include '../actions/MenuPermission.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +47,9 @@ include '../actions/MenuPermission.php';
 
               <!-- Info boxes -->
               <div class="row">
-
-                <!-- fix for small devices only -->
+       <!-- fix for small devices only -->
                 <div class="clearfix hidden-md-up"></div>
-                <?php if (MenuPermission('2', $conn, $SessionID) == 1) { ?>
+
                 <div class="col-md-3">
                   <a href="Package.php" class="card card-primary">
                     <div class="card-header">
@@ -70,7 +67,73 @@ include '../actions/MenuPermission.php';
 
                 </div>
                 <!-- /.col -->
-                <?php } ?>
+        
+                
+                
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+                <div class="col-md-3">
+                  <a href="Owner.php" class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <span class="material-icons">local_offer</span> Owner View</h3>
+
+                      <!-- /.card-tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      Total Active Owner <?php Print $ActiveOwner; ?>
+                    </div>
+                    <!-- /.card-body -->
+                  </a>
+
+                </div>
+                <!-- /.col -->
+
+ 
+                
+                
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+                <div class="col-md-3">
+                  <a href="Shop.php" class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <span class="material-icons">local_offer</span> shop View</h3>
+
+                      <!-- /.card-tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      Total Active shop <?php Print $ActiveShop; ?>
+                    </div>
+                    <!-- /.card-body -->
+                  </a>
+
+                </div>
+                <!-- /.col -->
+
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+                <div class="col-md-3">
+                  <a href="Medicine.php" class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <span class="material-icons">local_offer</span> Medicine View</h3>
+
+                      <!-- /.card-tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      Total Active Medicine <?php Print $ActiveMedicine; ?>
+                    </div>
+                    <!-- /.card-body -->
+                  </a>
+
+                </div>
+                <!-- /.col -->
+       
+                
 
               </div>
               <!-- /.row -->
@@ -102,7 +165,7 @@ include '../includes/AccessLog.php';
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
-  <?php include '../views/RequiredFotterContex.php';?>
+  <?php include '../views/RequiredFotterContex.php'; ?>
 
 </body>
 

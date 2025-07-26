@@ -7,7 +7,7 @@ $post_data['total_amount'] = "$_POST[PacakageAmount]";
 $post_data['currency'] = "BDT";
 $post_data['tran_id'] = "SSLCZ_TEST_".uniqid();
 $token = md5($post_data['store_passwd'] . $post_data['tran_id'] . $post_data['total_amount'] . $post_data['currency']);
-$post_data['success_url'] = "http://103.112.53.16:50/mws_pharmacy_management/site/Payment.php?status=success&token=$token&tran_id=$post_data[tran_id]";
+$post_data['success_url'] = "http://103.112.53.16:50/mws_nuralam_pharma_management/site/Payment.php?status=success&token=$token&tran_id=$post_data[tran_id]";
 $post_data['fail_url'] = "https://sslcommerz.safenibd.com/fail.php";
 $post_data['cancel_url'] = "https://sslcommerz.safenibd.com/cancel.php";
 # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE

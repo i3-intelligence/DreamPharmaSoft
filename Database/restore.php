@@ -11,10 +11,10 @@ if (!file_exists($filepath)) {
 }
 
 $host = 'localhost';
-$port = 3307;  // Update if needed
+$port = 3306;  // Update if needed
 $user = 'root';
 $pass = '';   // empty password
-$db = 'pharmacy';
+$db = 'nuralam_pharma';
 
 $mysql = 'E:/Server/mysql/bin/mysql.exe';
 

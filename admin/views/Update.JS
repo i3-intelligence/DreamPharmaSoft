@@ -212,7 +212,7 @@ function UpdateOwner() {
           'paging': 'true',
           'order': [],
           'ajax': {
-          'url': 'OwnerViewDataCall.php',
+          'url': '../actions/OwnerViewDataCall.php',
           'type': 'post',
           },
           "aoColumnDefs": [{
@@ -266,7 +266,7 @@ function UpdateMedicine(){
   }
 
   if (PackSize == '') {
-    toastr.error('Please Enter Pack Size!!!');
+    toastr.error('Please Enter Unit Quantity!!!');
     playclip_warning();
     $('#PackSize2').focus();
     return false;
@@ -331,7 +331,7 @@ function UpdateMedicine(){
           'paging': 'true',
           'order': [],
           'ajax': {
-          'url': 'MedicineViewDataCall.php',
+          'url': '../actions/MedicineViewDataCall.php',
           'type': 'post',
           },
           "aoColumnDefs": [{

@@ -62,7 +62,7 @@ switch($action){
         $DecryptPassword = rand(10,100000);
         $Password = md5($DecryptPassword);
 
-        $duplicate = $conn->prepare("SELECT * FROM `user_data` WHERE `Phone` = '$Phone'");
+        $duplicate = $conn->prepare("SELECT * FROM `user_information` WHERE `Phone` = '$Phone'");
         $duplicate->execute();
         if($duplicate->rowCount() >= 1){
             print 102;
@@ -89,7 +89,7 @@ switch($action){
 
 
     //Insert Shop Data 
-    $ShopInsert = $conn->exec("INSERT INTO `Shop`
+    $ShopInsert = $conn->exec("INSERT INTO `shop`
     (
         `ShopName`, 
         `ShopAddress`, 
@@ -111,7 +111,7 @@ switch($action){
     $ShopId = $conn->lastInsertId();
 
         //Insert Owner Data
-        $OwnerInsert = $conn->exec("INSERT INTO `user_data`
+        $OwnerInsert = $conn->exec("INSERT INTO `user_information`
                 (
                     `UserName`, 
                     `Phone`, 
@@ -135,45 +135,14 @@ switch($action){
 
     $OwnerId = $conn->lastInsertId();
 if($OwnerInsert){
-//User Database Name        
-$ShopDB = $username."_".$ShopId;
-
-//Shop Database Create
-$CreateDatabase = $conn->prepare("CREATE DATABASE IF NOT EXISTS `$ShopDB`");
-$CreateDatabase->execute();
-
-//Shop Database GRANT OPTION
-// SHOW GRANTS FOR mwsbdco_parma@localhost;
-$AddToUser = $conn->prepare("GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `$prefix\_parma\_$ShopId`.* TO `$username`@`localhost`
-");
-$AddToUser->execute();
 
 //Shop Database Add On Shop Table
-$AddToShop = $conn->prepare("UPDATE `Shop` SET `ShopDB` = '$ShopDB',`OwnerId` = '$OwnerId'  WHERE `Id` = '$ShopId'");
+$AddToShop = $conn->prepare("UPDATE `shop` SET `OwnerId` = '$OwnerId'  WHERE `Id` = '$ShopId'");
 $AddToShop->execute();
 
-//Shop Database Add On Medicine Table
-$CreateMedicineTable = $conn->prepare("CREATE TABLE IF NOT EXISTS `$ShopDB`.`Medicine` (
-    `MedicineID` int(11) NOT NULL UNIQUE KEY ,
-    `MedicineName` varchar(255) NOT NULL,
-    `PurchasePrice` double NOT NULL,
-    `WoleSalePrice` double NOT NULL,
-    `PackSize` double NOT NULL,
-    `PriceBox` double NOT NULL,
-    `SalePrice` double NOT NULL,
-    `Company` varchar(255) NOT NULL,
-    `Generic` varchar(255) NOT NULL,
-    `OpeningStock` double NOT NULL,
-    `CreateDate` timestamp NOT NULL,
-    `LastModifiedDate` timestamp NOT NULL,
-    `EntryId` int(11) NOT NULL,
-    `UpdateId` int(11) NOT NULL,
-    `Status` varchar(25) NOT NULL
-    )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ");
-$CreateMedicineTable->execute();
 
 //Shop Database Add On Medicine Table Data
-$AddToMedicineData = $conn->exec("INSERT INTO `$ShopDB`.`Medicine` SELECT `MedicineID`, `MedicineName`, `PurchasePrice`, `WoleSalePrice`, `PackSize`, `PriceBox`, `SalePrice`, `Company`, `Generic`, `OpeningStock`, `CreateDate`, `LastModifiedDate`, `EntryId`, `UpdateId`, `Status`  FROM `Medicine` WHERE `Status` = 'Active'");
+$AddToMedicineData = $conn->exec("INSERT INTO `user_medicine` SELECT '',`MedicineID`, `MedicineName`, `PurchasePrice`, `WoleSalePrice`, `PackSize`, `PriceBox`, `SalePrice`, `Company`, `Generic`, `OpeningStock`, `CreateDate`, `LastModifiedDate`, `EntryId`, `UpdateId`, $ShopId, `Status` FROM `medicine` WHERE `Status` = 'Active'");
 
 if($AddToMedicineData){
     print 101;
@@ -184,6 +153,8 @@ if($AddToMedicineData){
         }
     }
 
+
+    
     break;
 
 //Medicine Insert
@@ -195,14 +166,14 @@ if($AddToMedicineData){
         $Company = clean($_POST['Company']);
         $Generic = clean($_POST['Generic']);
 
-        $duplicate = $conn->prepare("SELECT * FROM `Medicine` WHERE `MedicineName` = '$MedicineName'");
+        $duplicate = $conn->prepare("SELECT * FROM `medicine` WHERE `MedicineName` = '$MedicineName'");
         $duplicate->execute();
         if($duplicate->rowCount() >= 1){
             print 102;
             exit();
         }
 
-        $MedicineInsert = $conn->exec("INSERT INTO `Medicine`
+        $MedicineInsert = $conn->exec("INSERT INTO `medicine`
                 (
                     `MedicineName`, 
                     `PurchasePrice`, 

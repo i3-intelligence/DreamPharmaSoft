@@ -207,7 +207,7 @@ function AddOwner() {
           'paging': 'true',
           'order': [],
           'ajax': {
-          'url': 'OwnerViewDataCall.php',
+          'url': '../actions/OwnerViewDataCall.php',
           'type': 'post',
           },
           "aoColumnDefs": [{
@@ -257,7 +257,7 @@ function AddOwner() {
     }
 
     if (PackSize == '') {
-      toastr.error('Please Enter Pack Size!!!');
+      toastr.error('Please Enter Unit Quantity!!!');
       playclip_warning();
       $('#PackSize').focus();
       return false;
@@ -277,12 +277,12 @@ function AddOwner() {
       return false;
     }
 
-    if (Generic == '') {
-      toastr.error('Please Enter Generic Name!!!');
-      playclip_warning();
-      $('#Generic').focus();
-      return false;
-    }
+    // if (Generic == '') {
+    //   toastr.error('Please Enter Generic Name!!!');
+    //   playclip_warning();
+    //   $('#Generic').focus();
+    //   return false;
+    // }
 
     // BEFORE RESPONSE
     $('#AddMedicine').val('Please Wait...');
@@ -320,7 +320,7 @@ function AddOwner() {
           'paging': 'true',
           'order': [],
           'ajax': {
-          'url': 'MedicineViewDataCall.php',
+          'url': '../actions/MedicineViewDataCall.php',
           'type': 'post',
           },
           "aoColumnDefs": [{

@@ -1,11 +1,11 @@
 <?php
 header('Content-Type: application/json');
-
+date_default_timezone_set('Asia/Dhaka');
 $host = '127.0.0.1'; // Use IP, not 'localhost'
-$port = 3307;         // Your new MySQL port
+$port = 3306;         // Your new MySQL port
 $user = 'root';
 $pass = '';           // empty password
-$db = 'pharmacy';
+$db = 'nuralam_pharma';
 
 $backupDir = __DIR__ . '/backups';
 if (!file_exists($backupDir)) {
@@ -15,7 +15,7 @@ if (!file_exists($backupDir)) {
 // Path to mysqldump.exe (use forward slashes)
 $mysqldump = 'E:/Server/mysql/bin/mysqldump.exe';
 
-$filename = $backupDir . '/' . $db . '_backup_' . date('Y-m-d_H-i-s') . '.sql';
+$filename = $backupDir . '/' . $db . '_backup_' . date('d-m-y--h.iA') . '.sql';
 
 // Include port with -P flag
 $cmd = "\"$mysqldump\" -h $host -P $port -u $user " . ($pass === '' ? '' : "-p$pass ") . "$db > " . escapeshellarg($filename);

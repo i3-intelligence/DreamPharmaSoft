@@ -55,20 +55,20 @@ switch($action){
 
         
 
-        $duplicate = $conn->prepare("SELECT * FROM `user_data` WHERE `Phone` = '$Phone' AND `Id` != '$UpdateId' ");
+        $duplicate = $conn->prepare("SELECT * FROM `user_information` WHERE `Phone` = '$Phone' AND `Id` != '$UpdateId' ");
         $duplicate->execute();
         if($duplicate->rowCount() >= 1){
             print 102;
             exit();
         }
 
-        $OwnerUpdate = $conn->prepare("UPDATE `user_data` SET 
+        $OwnerUpdate = $conn->prepare("UPDATE `user_information` SET 
                 `UserName`='".$OwnerName."',
                 `Phone`='".$Phone."'
                 WHERE `Id` = '".$UpdateId."' ");
         $OwnerUpdate->execute();
 
-        $ShopUpdate = $conn->prepare("UPDATE `Shop` SET 
+        $ShopUpdate = $conn->prepare("UPDATE `shop` SET 
                 `PackageId`='".$PackageId."',
                 `ShopName`='".$ShopName."',
                 `ShopAddress`='".$ShopAddress."',

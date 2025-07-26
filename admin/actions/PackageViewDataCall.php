@@ -5,7 +5,7 @@ include('Function.php');
 
 $output= array();
 $sql = "SELECT * FROM Package ";
-$total_all_rows = GetPackageAllRecords($conn);
+$total_all_rows = GetpackageAllRecords($conn);
 
 $columns = array(
 	0 => 'Id',

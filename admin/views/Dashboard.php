@@ -25,7 +25,7 @@ include '../config/Database.php'; // Database connection file
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+              <!-- <li class="breadcrumb-item"><a href="Dashboard.php">Home</a></li> -->
               <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
             </ol>
           </div><!-- /.col -->
@@ -59,7 +59,7 @@ include '../config/Database.php'; // Database connection file
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-<?php include '../views/RequiredFotterContex.php';?>
+<?php include '../views/RequiredFotterContex.php'; ?>
 
 </body>
 </html>

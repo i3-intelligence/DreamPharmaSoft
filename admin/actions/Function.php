@@ -1,7 +1,7 @@
 <?php
-function GetPackageAllRecords($conn)
+function GetpackageAllRecords($conn)
 {
-	$query = "SELECT * FROM Package";
+	$query = "SELECT * FROM package";
 
 	$statement = $conn->prepare($query);
 
@@ -13,7 +13,7 @@ function GetPackageAllRecords($conn)
 
 function GetOwnerAllRecords($conn)
 {
-	$query = "SELECT * FROM user_data WHERE Owner = 'Yes'";
+	$query = "SELECT * FROM user_information WHERE Owner = 'Yes'";
 
 	$statement = $conn->prepare($query);
 
@@ -25,7 +25,7 @@ function GetOwnerAllRecords($conn)
 
 function GetMedicineAllRecords($conn)
 {
-	$query = "SELECT * FROM Medicine";
+	$query = "SELECT * FROM medicine";
 
 	$statement = $conn->prepare($query);
 
