@@ -10,6 +10,7 @@ include '../config/Database.php'; // Database connection file
         <th>Package Duration</th>
         <th>Package Price</th>
         <th>Number Of Users</th>
+        <th>Description</th>
       <th>Status</th>
       <th>Create Date/Last Update</th>
       <?php if($EditAccess=='Yes'){ ?>
@@ -29,6 +30,7 @@ include '../config/Database.php'; // Database connection file
         <th>Package Duration</th>
         <th>Package Price</th>
         <th>Number Of Users</th>
+        <th>Description</th>
       <th>Status</th>
       <th>Create Date/Last Update</th>
       <?php if($EditAccess=='Yes'){ ?>

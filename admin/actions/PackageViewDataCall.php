@@ -12,10 +12,12 @@ $columns = array(
 	1 => 'PackageName',
 	2 => 'PacakageDuration',
 	3 => 'PacakageAmount',
-	4 => 'CreateDate',
-	5 => 'LastUpdate',
-	6 => 'Status',
-	8 => 'NumberOfUser',
+	4 => 'SortDescription',
+	5 => 'Description',
+	6 => 'CreateDate',
+	7 => 'LastUpdate',
+	8 => 'Status',
+	9 => 'NumberOfUser',
 
 );
 
@@ -26,6 +28,8 @@ if(isset($_POST['search']['value']))
 	$sql .= " OR PacakageDuration like '%".$search_value."%'";
 	$sql .= " OR PacakageAmount like '%".$search_value."%'";
 	$sql .= " OR CreateDate like '%".$search_value."%'";
+	$sql .= " OR SortDescription like '%".$search_value."%'";
+	$sql .= " OR Description like '%".$search_value."%'";
 	$sql .= " OR LastUpdate like '%".$search_value."%'";
 	$sql .= " OR Status like '%".$search_value."%'";
 	$sql .= " OR NumberOfUser like '%".$search_value."%'";
@@ -67,8 +71,13 @@ foreach($result as $fetch)
 	$sub_array[] = html_entity_decode($fetch["PacakageDuration"]);
 	$sub_array[] = html_entity_decode($fetch["PacakageAmount"]);
 	$sub_array[] = html_entity_decode($fetch["NumberOfUser"]);
+	$sub_array[] = "<details>
+					  <summary>$fetch[SortDescription]</summary>
+					  <p>$fetch[Description]</p>
+					</details>";
 
 	$sub_array[] = "<span class=\"$status_span\">$fetch[Status]</span>";
+	
 	$sub_array[] = "<details>
 					  <summary> $CreateDate</summary>
 					  <p>$fetch[LastUpdate]</p>

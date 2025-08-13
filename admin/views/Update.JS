@@ -239,6 +239,133 @@ function UpdateOwner() {
   
 }  
 
+
+// Shop Update
+function UpdateShop() {
+  //get the VALUE
+    var UpdateId = $('#UpdateId').val();
+    var ShopName = $('#ShopName').val();
+    var ShopContact = $('#ShopContact').val();
+    var ShopAddress = $('#ShopAddress').val();
+    var PackageId = $('#PackageId').val();
+    var SubscriptionStartDate = $('#SubscriptionStartDate').val();
+    var SubscriptionEndDate = $('#SubscriptionEndDate').val();
+    var Status = $('#Status').val();
+  
+    if (ShopName == '') {
+      toastr.error('Please Enter Shop Name!!!');
+      playclip_warning();
+      $('#ShopName').focus();
+      return false;
+    }
+
+
+    if (ShopContact == '0') {
+      toastr.error('Please Enter Shop Moblie No.!!!');
+      playclip_warning();
+      $('#ShopContact').focus();
+      return false;
+    }
+
+
+    if (ShopAddress == '') {
+      toastr.error('Please Enter Shop Address!!!');
+      playclip_warning();
+      $('#ShopAddress').focus();
+      return false;
+    }
+
+
+    if (PackageId == '') {
+      toastr.error('Please Select Package !!!');
+      playclip_warning();
+      $('#PackageId').focus();
+      return false;
+    }
+
+
+    if (SubscriptionStartDate == '') {
+      toastr.error('Please Enter Subscription Start Date!!!');
+      playclip_warning();
+      $('#SubscriptionStartDate').focus();
+      return false;
+    }
+
+
+    
+    if (SubscriptionEndDate == '') {
+      toastr.error('Please Enter Subscription End Date!!!');
+      playclip_warning();
+      $('#SubscriptionEndDate').focus();
+      return false;
+    }
+
+    // BEFORE RESPONSE
+    $('#UpdateShop').val('Please Wait...');
+    document.getElementById('UpdateShop').disabled = true;
+
+    //use ajax to run the check
+    $.post("../actions/UpdateData.php", {
+        action: "Shop",
+        UpdateId: UpdateId,
+        ShopContact: ShopContact,
+        ShopName: ShopName,
+        ShopAddress: ShopAddress,
+        PackageId: PackageId,
+        SubscriptionStartDate: SubscriptionStartDate,
+        SubscriptionEndDate: SubscriptionEndDate,
+        Status: Status
+
+      },
+      function (result) {
+        //if the result is 1
+        if (result == 200) {
+          //alert(result);
+          toastr.success("["+ShopName + "] Update Successful !!!");
+          //Form Value Update
+          $('#UpdateShop').val('Update Data');
+          document.getElementById('UpdateShop').disabled = false;
+          $('#modal-default1').modal('hide');
+
+          $("#LoadCart_list").load("ShopList.php",function(){
+
+          $('#ShopView').DataTable({
+          "fnCreatedRow": function(nRow, aData, iDataIndex) {
+          $(nRow).attr('id', aData[0]);
+          },
+          'serverSide': 'true',
+          'processing': 'true',
+          'paging': 'true',
+          'order': [],
+          'ajax': {
+          'url': '../actions/ShopViewDataCall.php',
+          'type': 'post',
+          },
+          "aoColumnDefs": [{
+          "bSortable": false,
+          "aTargets": [5]
+          },
+
+          ]
+          });
+
+          });
+
+        } else if (result == 102) {
+          //alert(result);
+          toastr.warning("Sorry [" + Phone + "] Already Added !!!");
+          playclip_warning();
+          //Form Value Update
+          $('#UpdateShop').val('Update Data');
+          document.getElementById('UpdateShop').disabled = false;
+        } else {
+          alert(result);
+        }
+      });
+  
+}  
+
+
 // Medicine Update
 function UpdateMedicine(){
   //get the VALUE

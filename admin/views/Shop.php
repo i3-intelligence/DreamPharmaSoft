@@ -26,8 +26,6 @@ include '../config/Database.php'; // Database connection file
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1"
-          data-whatever="Shop">ADD NEW</button></li>
                 <li class="breadcrumb-item"><a href="Dashboard.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="Added.php">Added Menu</a></li>
                 <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
@@ -85,7 +83,6 @@ include '../config/Database.php'; // Database connection file
     </div>
 <!-- Custom JS -->
 
-<script src="../views/Insert.JS"></script>
 <script src="../views/Update.JS"></script>
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -135,23 +132,8 @@ include '../config/Database.php'; // Database connection file
 
         if(ID =='Shop'){
 
-          modal.find('.modal-title').text('Shop Add');
-       
-        $.ajax({
-          type: "GET",
-          url: "../views/ModalShopInsert.php",
-          data: dataString,
-          cache: false,
-          success: function (data) {
-            console.log(data);
-            modal.find('.dash').html(data);
-          },
-          error: function (err) {
-            console.log(err);
-          }
-        });
 
-      }else if (ID !='Shop'){
+         }else if (ID !='Shop'){
 
           modal.find('.modal-title').text('Shop Update');
           $.ajax({
