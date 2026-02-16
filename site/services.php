@@ -1,6 +1,6 @@
 <?php 
 // Db Connection
-include('db.php');
+include '../admin/config/Database.php';// Database Connection
 ?>
 <!doctype html>
 <html lang="eng">

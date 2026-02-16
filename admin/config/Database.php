@@ -5,12 +5,13 @@ $prefix = "nuralam_"; // For online/offline prefixing (optional)
 $servername = "localhost";
 $username = $prefix . "pms"; //Pharmacy Management System
 $password = "f[bL8Wu1VA7yPK1]"; // lowercase for consistency
+$port = "3307";
 $database = $prefix . "pharma";
 
 
 try {
     $conn = new PDO(
-        "mysql:host=$servername;dbname=$database;charset=utf8",
+        "mysql:host=$servername;port=$port;dbname=$database;charset=utf8",
         $username,
         $password,
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -59,5 +60,6 @@ $CurrentDateTime = date("Y-m-d H:i:s");
 
 $Development = "Dream Pharma Soft";
 $DevelopmentLink = "https://www.facebook.com/shafayetnuralam";
+$ProjectURL = "https://www.dreampharmasoft.com/";
 $PHPVersion = phpversion();
 ?>
