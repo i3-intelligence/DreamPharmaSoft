@@ -1,12 +1,8 @@
 <?php
-include 'includes/Session.php'; // Session Starting file
+include 'Session.php';
 if (!isset($_SESSION['CSRF'])) {
     $_SESSION['CSRF'] = bin2hex(random_bytes(32)); // Generate a new CSRF token if it doesn't exist
-
-
 }
-// print $_SESSION['CSRF'];
-
-header("Location: views/Login.php?notify=login");
+header("Location: Login.php");
 exit();
 ?>
