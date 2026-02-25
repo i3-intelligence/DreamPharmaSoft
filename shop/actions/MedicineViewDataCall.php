@@ -4,7 +4,7 @@ include '../config/Database.php'; // Database connection file
 include('function.php');
 
 $output= array();
-$sql = "SELECT * FROM medicine ";
+$sql = "SELECT * FROM user_medicine  ";
 $total_all_rows = GetMedicineAllRecords($conn);
 
 $columns = array(
@@ -22,7 +22,7 @@ $columns = array(
 if(isset($_POST['search']['value']))
 {
 	$search_value = $_POST['search']['value'];
-	$sql .= " WHERE `MedicineName` like '%".$search_value."%'";
+	$sql .= " WHERE (`MedicineName` like '%".$search_value."%'";
 	$sql .= " OR `PurchasePrice` like '%".$search_value."%'";
 	$sql .= " OR `PackSize` like '%".$search_value."%'";
 	$sql .= " OR `SalePrice` like '%".$search_value."%'";
@@ -30,7 +30,7 @@ if(isset($_POST['search']['value']))
 	$sql .= " OR `Company` like '%".$search_value."%'";
 	$sql .= " OR `OpeningStock` like '%".$search_value."%'";
 	$sql .= " OR `Generic` like '%".$search_value."%'";
-	$sql .= " OR LPAD(`MedicineID`, 3, '0') like '%".$search_value."%'";
+	$sql .= " OR LPAD(`MedicineID`, 3, '0') like '%".$search_value."%') And (`ShopId` = '$ShopId')";
 
 }
 

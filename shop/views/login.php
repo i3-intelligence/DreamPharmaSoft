@@ -65,7 +65,7 @@ if (!isset($_SESSION['CSRF'])) {
                 <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
                 <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
                     <label for="" class="block mt-6 text-xl text-gray-700 text-center font-semibold">
-                    <?php print $Development; ?> (Control Panel)</label>
+                    <?php print $Development; ?> </label>
                     <form role="form" action="../actions/LoginExecute.php" method="post">
                     <input type="hidden" name="CSRF_token" value="<?php print $_SESSION['CSRF']; ?>">
                         <div>

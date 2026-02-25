@@ -12,7 +12,7 @@ include '../config/Database.php'; // Database connection file
   <div class="wrapper">
 
     <!-- Navbar -->
-    <?php include("navbar.php"); ?>
+    <?php include("Navbar.php"); ?>
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -22,7 +22,7 @@ include '../config/Database.php'; // Database connection file
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"><?php print $PageLevel = "Medicine View"; ?></h1>
+              <h1 class="m-0"><?php echo $PageLevel = __("Medicine View"); ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">

@@ -18,7 +18,7 @@
           <a href="Added.php" class="nav-link <?php print ($ActivePage == 'Added') ? 'active':''; ?>">Added Menu</a>
         </li>
         <li class="nav-item">
-          <a href="Receive.php" class="nav-link <?php print ($ActivePage == 'Receive') ? 'active':''; ?>">Receive Menu</a>
+          <a href="Receive.php" class="nav-link <?php print ($ActivePage == 'Receive') ? 'active':''; ?>">Receive Menu </a>
         </li>
 
         <li class="nav-item">
@@ -36,6 +36,7 @@
 
     <!-- Right navbar links -->
     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+      
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">

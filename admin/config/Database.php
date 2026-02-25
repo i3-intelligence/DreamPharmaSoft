@@ -21,6 +21,9 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
+// Include Translation Helper
+// require_once __DIR__ . '/../../translator/Translate.php';
+
 // If session is set, fetch user data
 if (!empty($_SESSION['DPS_ADMIN_SSN_ID'])) {
     $query1 = $conn->prepare("SELECT * FROM `controller_information` WHERE `id` = :id");
@@ -39,8 +42,15 @@ if (!empty($_SESSION['DPS_ADMIN_SSN_ID'])) {
 
         $LastUpdate = "$OperatorName Date: " . date("d-M-Y") . " Time: " . date("h:i:s a") . " IP " . $_SERVER['REMOTE_ADDR'];
         $ActivePage = basename($_SERVER['PHP_SELF'], ".php");
+        
+        // Initialize Translation System
+        // Translate::init($conn);
     }
+} else {
+    // Basic init for non-logged-in pages if necessary
+    // Translate::init($conn);
 }
+
 
 // General variables
 $CurrentDate = date("Y-m-d");

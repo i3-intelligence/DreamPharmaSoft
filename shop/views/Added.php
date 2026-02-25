@@ -12,7 +12,7 @@ include '../actions/Count.php'; // Count Active Data
 
 
     <!-- Navbar -->
-    <?php include 'navbar.php';?>
+    <?php include 'Navbar.php';?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -21,11 +21,11 @@ include '../actions/Count.php'; // Count Active Data
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"><?php print $PageLevel = "Added Menu"; ?></h1>
+              <h1 class="m-0"><?php print $PageLevel = __("Added Menu"); ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="home.php"><?php echo __("Home"); ?></a></li>
                 <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
               </ol>
             </div><!-- /.col -->
@@ -40,7 +40,7 @@ include '../actions/Count.php'; // Count Active Data
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"> Setup Menu</h3>
+              <h3 class="card-title"> <?php echo __("Setup Menu"); ?></h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -48,84 +48,18 @@ include '../actions/Count.php'; // Count Active Data
               <!-- Info boxes -->
               <div class="row">
        <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-
-                <div class="col-md-3">
-                  <a href="Package.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Package View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Package <?php Print $ActivePackage; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-        
-                
-                
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <div class="col-md-3">
-                  <a href="Owner.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Owner View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active Owner <?php Print $ActiveOwner; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-
- 
-                
-                
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-                <div class="col-md-3">
-                  <a href="Shop.php" class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> shop View</h3>
-
-                      <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                      Total Active shop <?php Print $ActiveShop; ?>
-                    </div>
-                    <!-- /.card-body -->
-                  </a>
-
-                </div>
-                <!-- /.col -->
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
+    
                 <div class="col-md-3">
                   <a href="Medicine.php" class="card card-primary">
                     <div class="card-header">
                       <h3 class="card-title">
-                        <span class="material-icons">local_offer</span> Medicine View</h3>
+                        <span class="material-icons">local_offer</span> <?php echo __("Medicine View"); ?></h3>
 
                       <!-- /.card-tools -->
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                      Total Active Medicine <?php Print $ActiveMedicine; ?>
+                      <?php echo __("Total Active Medicine"); ?> <?php Print $ActiveMedicine; ?>
                     </div>
                     <!-- /.card-body -->
                   </a>

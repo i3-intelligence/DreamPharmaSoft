@@ -22,12 +22,12 @@ include '../config/Database.php'; // Database connection file
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"><?php print $PageLevel = "Owner View"; ?></h1>
+              <h1 class="m-0"><?php print $PageLevel = "Translation View"; ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1"
-          data-whatever="Owner">ADD NEW</button></li>
+          data-whatever="Translation">ADD NEW</button></li>
                 <li class="breadcrumb-item"><a href="Dashboard.php">Home</a></li>
                 <li class="breadcrumb-item"><a href="Added.php">Added Menu</a></li>
                 <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
@@ -49,7 +49,7 @@ include '../config/Database.php'; // Database connection file
               <!-- /.card-header -->
               <div class="card-body" id="LoadCart_list">
             
-                <?php include("OwnerList.php"); ?>
+                <?php include("TranslationList.php"); ?>
                
               </div>
               <!-- /.card-body -->
@@ -70,7 +70,7 @@ include '../config/Database.php'; // Database connection file
         <div class="modal-content">
           <div class="modal-header">
     
-            <h4 class="modal-title"> Owner Add </h4>
+            <h4 class="modal-title"> Translation Add </h4>
           </div>
           <div class="modal-body">
 
@@ -104,7 +104,7 @@ include '../config/Database.php'; // Database connection file
 <?php include '../views/RequiredFotterContex.php'; ?>
 </body>
 <script>
-  $('#OwnerView').DataTable({
+  $('#TranslationView').DataTable({
     "fnCreatedRow": function(nRow, aData, iDataIndex) {
       $(nRow).attr('id', aData[0]);
     },
@@ -113,18 +113,18 @@ include '../config/Database.php'; // Database connection file
     'paging': 'true',
     'order': [],
     'ajax': {
-      'url': '../actions/OwnerViewDataCall.php',
+      'url': '../actions/TranslationViewDataCall.php',
       'type': 'post',
     },
     "aoColumnDefs": [{
         "bSortable": false,
-        "aTargets": [5]
+        "aTargets": [4]
       },
 
     ]
   });
 
-  //Owner Add
+  //Translation Add/Update
       $('#modal-default1').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var ID = button.data('whatever') // Extract info from data-* attributes
@@ -132,17 +132,16 @@ include '../config/Database.php'; // Database connection file
         var dataString = 'id=' + ID;
         modal.find('.dash').html('');
 
-        if(ID =='Owner'){
+        if(ID =='Translation'){
 
-          modal.find('.modal-title').text('Owner Add');
+          modal.find('.modal-title').text('<?php echo $PageLevel; ?>');
        
         $.ajax({
           type: "GET",
-          url: "../views/ModalOwnerInsert.php",
+          url: "../views/ModalTranslationInsert.php",
           data: dataString,
           cache: false,
           success: function (data) {
-            console.log(data);
             modal.find('.dash').html(data);
           },
           error: function (err) {
@@ -150,24 +149,21 @@ include '../config/Database.php'; // Database connection file
           }
         });
 
-      }else if (ID !='Owner'){
+      } else {
 
-          modal.find('.modal-title').text('Owner Update');
+          modal.find('.modal-title').text('<?php echo "Translation Update"; ?>');
           $.ajax({
           type: "GET",
-          url: "../views/ModalOwnerUpdate.php",
+          url: "../views/ModalTranslationUpdate.php",
           data: dataString,
           cache: false,
           success: function (data) {
-            console.log(data);
             modal.find('.dash').html(data);
           },
           error: function (err) {
             console.log(err);
           }
         });
-        }else{
-          alert(400);
         }
 
       });

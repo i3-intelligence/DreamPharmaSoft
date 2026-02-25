@@ -222,6 +222,38 @@ if($AddToMedicineData){
             exit();
         }
 
+    //Translation Insert
+    case "Translation":
+        $translation_key = clean($_POST['translation_key']);
+        $en = clean($_POST['en']);
+        $bn = clean($_POST['bn']);
+
+        $duplicate = $conn->prepare("SELECT * FROM `app_translations` WHERE `translation_key` = '$translation_key'");
+        $duplicate->execute();
+        if($duplicate->rowCount() >= 1){
+            print 102;
+            exit();
+        }
+
+        $TranslationInsert = $conn->exec("INSERT INTO `app_translations`
+                (
+                    `translation_key`, 
+                    `en`, 
+                    `bn`
+                ) VALUES (
+                    '".$translation_key."',
+                    '".$en."',
+                    '".$bn."') ");
+
+        if($TranslationInsert){
+            print 101;
+            exit();
+        }else{
+            print 400;
+            exit();
+        }
+    break;
+
     default:
     print "400";
 }

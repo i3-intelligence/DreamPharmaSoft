@@ -6,132 +6,7 @@ include '../config/Database.php'; // Database connection file
 $action = $_POST['action'];
 
 switch($action){
-    //Package Update
-    case "Package":
-        $UpdateId = clean($_POST['UpdateId']);
-        $PackageName = clean($_POST['PackageName']);
-        $PacakageDuration = clean($_POST['PacakageDuration']);
-        $PacakageAmount = clean($_POST['PacakageAmount']);
-        $NumberOfUser = clean($_POST['NumberOfUser']);
-        $Status = clean($_POST['Status']);
-
-        $duplicate = $conn->prepare("SELECT * FROM `package` WHERE `PackageName` = '$PackageName' AND `Id` != '$UpdateId' ");
-        $duplicate->execute();
-        if($duplicate->rowCount() >= 1){
-            print 102;
-            exit();
-        }
-
-        $PackageUpdate = $conn->exec("UPDATE `package` SET 
-                `PackageName`='".$PackageName."',
-                `PacakageDuration`='".$PacakageDuration."',
-                `PacakageAmount`='".$PacakageAmount."',
-                `NumberOfUser`='".$NumberOfUser."',
-                `Status`='".$Status."',
-                `UpdateId`= '$SessionID',
-                `LastModifiedDate`= '$CurrentDateTime',
-                `LastUpdate`= '$LastUpdate'
-                WHERE `Id` = '".$UpdateId."' ");
-
-        if($PackageUpdate){
-            print 200;
-            exit();
-        }else{
-            print 400;
-            exit();
-        }
-
-    break;
-
-    //Owner Update
-    case "Owner":
-        $UpdateId = clean($_POST['UpdateId']);
-        $OwnerName = clean($_POST['OwnerName']);
-        $Phone = clean($_POST['Phone']);
-        $ShopName = clean($_POST['ShopName']);
-        $ShopAddress = clean($_POST['ShopAddress']);
-        $PackageId = clean($_POST['PackageId']);
-        $SubscriptionStartDate = clean($_POST['SubscriptionStartDate']);
-        $SubscriptionEndDate = clean($_POST['SubscriptionEndDate']);
-        $Status = clean($_POST['Status']);
-
-        
-
-        $duplicate = $conn->prepare("SELECT * FROM `user_information` WHERE `Phone` = '$Phone' AND `Id` != '$UpdateId' ");
-        $duplicate->execute();
-        if($duplicate->rowCount() >= 1){
-            print 102;
-            exit();
-        }
-
-        $OwnerUpdate = $conn->prepare("UPDATE `user_information` SET 
-                `UserName`='".$OwnerName."',
-                `Phone`='".$Phone."'
-                WHERE `Id` = '".$UpdateId."' ");
-        $OwnerUpdate->execute();
-
-        $ShopUpdate = $conn->prepare("UPDATE `shop` SET 
-                `PackageId`='".$PackageId."',
-                `ShopName`='".$ShopName."',
-                `ShopAddress`='".$ShopAddress."',
-                `SubscriptionStartDate`='".$SubscriptionStartDate."',
-                `SubscriptionEndDate`='".$SubscriptionEndDate."',
-                `Status`='".$Status."'
-                WHERE `OwnerId` = '".$UpdateId."' ");
-        $ShopUpdate->execute();
-
-        if($OwnerUpdate && $ShopUpdate){
-            print 200;
-            exit();
-        }else{
-            print 400;
-            exit();
-        }
-        
-        break;
-
-        
-    //Shop Update
-    case "Shop":
-        $UpdateId = clean($_POST['UpdateId']);
-        $ShopContact = clean($_POST['ShopContact']);
-        $ShopName = clean($_POST['ShopName']);
-        $ShopAddress = clean($_POST['ShopAddress']);
-        $PackageId = clean($_POST['PackageId']);
-        $SubscriptionStartDate = clean($_POST['SubscriptionStartDate']);
-        $SubscriptionEndDate = clean($_POST['SubscriptionEndDate']);
-        $Status = clean($_POST['Status']);
-
-        
-
-        $duplicate = $conn->prepare("SELECT * FROM `shop` WHERE `ShopContact` = '$ShopContact' AND `Id` != '$UpdateId' ");
-        $duplicate->execute();
-        if($duplicate->rowCount() >= 1){
-            print 102;
-            exit();
-        }
-
-        $ShopUpdate = $conn->prepare("UPDATE `shop` SET 
-                `PackageId`='".$PackageId."',
-                `ShopName`='".$ShopName."',
-                `ShopContact`='".$ShopContact."',
-                `ShopAddress`='".$ShopAddress."',
-                `SubscriptionStartDate`='".$SubscriptionStartDate."',
-                `SubscriptionEndDate`='".$SubscriptionEndDate."',
-                `Status`='".$Status."'
-                WHERE `OwnerId` = '".$UpdateId."' ");
-        $ShopUpdate->execute();
-
-        if($ShopUpdate){
-            print 200;
-            exit();
-        }else{
-            print 400;
-            exit();
-        }
-        
-        break;
-
+   
     //Medicine Update
     case "Medicine":
             $UpdateId = clean($_POST['UpdateId']);
@@ -143,7 +18,7 @@ switch($action){
             $Generic = clean($_POST['Generic']);
             $Status = clean($_POST['Status']);
 
-            $duplicate = $conn->prepare("SELECT * FROM `Medicine` WHERE `MedicineName` = '$MedicineName' AND `MedicineID` != '$UpdateId' ");
+            $duplicate = $conn->prepare("SELECT * FROM `Medicine` WHERE `MedicineName` = '$MedicineName' AND `$ShopId` = '$ShopId'  AND `MedicineID` != '$UpdateId' ");
             $duplicate->execute();
 
             if($duplicate->rowCount() >= 1){

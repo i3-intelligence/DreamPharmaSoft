@@ -5,16 +5,16 @@ include '../config/Database.php'; // Database connection file
 <table id="MedicineView" class="table table-bordered table-striped">
   <thead>
     <tr>
-        <th>SL</th>
-        <th>Medicine Name</th>
-        <th>Purchase Price</th>
-        <th>Unit Quantity</th>
-        <th>Sales Price</th>
-        <th>Company</th>
-        <th>Generic Name</th>
-      <th>Status</th>
+        <th><?php echo "SL"; ?></th>
+        <th><?php echo "Medicine Name"; ?></th>
+        <th><?php echo "Purchase Price"; ?></th>
+        <th><?php echo "Unit Quantity"; ?></th>
+        <th><?php echo "Sales Price"; ?></th>
+        <th><?php echo "Company"; ?></th>
+        <th><?php echo "Generic Name"; ?></th>
+      <th><?php echo "Status"; ?></th>
       <?php if($EditAccess=='Yes'){ ?>
-      <th>Update</th>
+      <th><?php echo "Update"; ?></th>
         <?php
         }
         ?>
@@ -25,16 +25,16 @@ include '../config/Database.php'; // Database connection file
   </tbody>
   <tfoot>
   <tr>
-        <th>SL</th>
-        <th>Medicine Name</th>
-        <th>Purchase Price</th>
-        <th>Unit Quantity</th>
-        <th>Sales Price</th>
-        <th>Company</th>
-        <th>Generic Name</th>
-      <th>Status</th>
+        <th><?php echo "SL"; ?></th>
+        <th><?php echo "Medicine Name"; ?></th>
+        <th><?php echo "Purchase Price"; ?></th>
+        <th><?php echo "Unit Quantity"; ?></th>
+        <th><?php echo "Sales Price"; ?></th>
+        <th><?php echo "Company"; ?></th>
+        <th><?php echo "Generic Name"; ?></th>
+      <th><?php echo "Status"; ?></th>
       <?php if($EditAccess=='Yes'){ ?>
-      <th>Update</th>
+      <th><?php echo "Update"; ?></th>
         <?php
         }
         ?>

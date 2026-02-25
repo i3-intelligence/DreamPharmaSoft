@@ -15,18 +15,18 @@
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="Added.php" class="nav-link <?php print ($ActivePage == 'Added') ? 'active':''; ?>">Added Menu</a>
+          <a href="Added.php" class="nav-link <?php print ($ActivePage == 'Added') ? 'active':''; ?>"><?php echo __("Added Menu"); ?></a>
         </li>
         <li class="nav-item">
-          <a href="Receive.php" class="nav-link <?php print ($ActivePage == 'Receive') ? 'active':''; ?>">Receive Menu</a>
-        </li>
-
-        <li class="nav-item">
-          <a href="Payment.php" class="nav-link <?php print ($ActivePage == 'Payment') ? 'active':''; ?>">Payment Menu</a>
+          <a href="Receive.php" class="nav-link <?php print ($ActivePage == 'Receive') ? 'active':''; ?>"><?php echo __("Receive Menu"); ?></a>
         </li>
 
         <li class="nav-item">
-          <a href="Report.php" class="nav-link <?php print ($ActivePage == 'report') ? 'active':''; ?>">Report</a>
+          <a href="Payment.php" class="nav-link <?php print ($ActivePage == 'Payment') ? 'active':''; ?>"><?php echo __("Payment Menu"); ?></a>
+        </li>
+
+        <li class="nav-item">
+          <a href="Report.php" class="nav-link <?php print ($ActivePage == 'report') ? 'active':''; ?>"><?php echo __("Report"); ?></a>
         </li>
 
 
@@ -36,6 +36,19 @@
 
     <!-- Right navbar links -->
     <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+
+      <!-- Language Switcher -->
+      <li class="nav-item">
+        <?php if (($_SESSION['app_lang'] ?? 'en') === 'en'): ?>
+          <a class="nav-link" href="?lang=bn" title="বাংলায় পরিবর্তন করুন">
+            <span class="badge badge-info">বাংলা</span>
+          </a>
+        <?php else: ?>
+          <a class="nav-link" href="?lang=en" title="Switch to English">
+            <span class="badge badge-success">EN</span>
+          </a>
+        <?php endif; ?>
+      </li>
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">

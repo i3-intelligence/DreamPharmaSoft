@@ -1,7 +1,7 @@
 <?php
 $mysqldump = "E:/Server/mysql/bin/mysqldump.exe";  // Use forward slashes or double backslashes
 $host = '127.0.0.1';       // Use IP instead of localhost
-$port = 3306;              // Your custom MySQL port
+$port = 3307;              // Your custom MySQL port
 $user = 'root';
 $pass = '';                // your DB password (empty if none)
 $db = 'nuralam_pharma';

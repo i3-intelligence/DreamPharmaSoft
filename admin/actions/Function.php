@@ -34,4 +34,14 @@ function GetMedicineAllRecords($conn)
 	return $statement->rowCount();
 }
 
+function GetTranslationAllRecords($conn)
+{
+	$query = "SELECT * FROM app_translations";
+
+	$statement = $conn->prepare($query);
+
+	$statement->execute();
+
+	return $statement->rowCount();
+}
 ?>

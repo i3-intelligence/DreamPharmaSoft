@@ -174,6 +174,37 @@ switch($action){
 
         break;
 
+    //Translation Update
+    case "Translation":
+        $UpdateId = clean($_POST['UpdateId']);
+        $translation_key = clean($_POST['translation_key']);
+        $en = clean($_POST['en']);
+        $bn = clean($_POST['bn']);
+
+        $duplicate = $conn->prepare("SELECT * FROM `app_translations` WHERE `translation_key` = '$translation_key' AND `id` != '$UpdateId' ");
+        $duplicate->execute();
+
+        if($duplicate->rowCount() >= 1){
+            print 102;
+            exit();
+        }
+
+        $TranslationUpdate = $conn->prepare("UPDATE `app_translations` SET 
+                `translation_key`='".$translation_key."',
+                `en`='".$en."',
+                `bn`='".$bn."'
+                WHERE `id` = '".$UpdateId."' ");
+        $TranslationUpdate->execute();
+
+        if($TranslationUpdate){
+            print 200;
+            exit();
+        }else{
+            print 400;
+            exit();
+        }
+    break;
+
     default:
     print "400";
 

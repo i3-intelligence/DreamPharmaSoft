@@ -3,7 +3,7 @@ require_once '../includes/Auth.php'; // Session Starting file
 include '../config/Database.php'; // Database connection file
 if(!empty($_GET['id'])){
     $UpdateId = $_GET['id'];
-    $sql =$conn->prepare("SELECT * FROM `medicine` WHERE `MedicineID`='$UpdateId'");
+    $sql =$conn->prepare("SELECT * FROM `user_medicine` WHERE `MedicineID`='$UpdateId' AND `ShopId`='$ShopId' ");
     $sql->execute();
     $fetch = $sql->fetch(PDO::FETCH_ASSOC);
     $MedicineName = $fetch['MedicineName'];
@@ -22,9 +22,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Medicine Name</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Medicine Name"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="MedicineName2"
-          placeholder="Enter Medicine Name" value="<?php print $MedicineName; ?>">
+          placeholder="<?php echo __("Enter Medicine Name"); ?>" value="<?php print $MedicineName; ?>">
       </div>
 
     </div>
@@ -32,9 +32,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Purchase Price</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Purchase Price"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="PurchasePrice2"
-          placeholder="Enter Purchase Price" value="<?php print $PurchasePrice; ?>">
+          placeholder="<?php echo __("Enter Purchase Price"); ?>" value="<?php print $PurchasePrice; ?>">
       </div>
 
         </div>
@@ -44,9 +44,9 @@ if(!empty($_GET['id'])){
         <div class="col-md-6">
         <!-- input states -->
         <div class="form-group">
-            <label class="col-form-label" for="inputSuccess">Unit Quantity</label>
+            <label class="col-form-label" for="inputSuccess"><?php echo __("Unit Quantity"); ?></label>
             <input type="text" class="form-control" onkeyup="check_input();" id="PackSize2"
-            placeholder="Enter Unit Quantity" value="<?php print $PackSize; ?>">
+            placeholder="<?php echo __("Enter Unit Quantity"); ?>" value="<?php print $PackSize; ?>">
         </div>
 
         </div>
@@ -55,9 +55,9 @@ if(!empty($_GET['id'])){
         <div class="col-md-6">
         <!-- input states -->
         <div class="form-group">
-            <label class="col-form-label" for="inputSuccess">Sales Price</label>
+            <label class="col-form-label" for="inputSuccess"><?php echo __("Sales Price"); ?></label>
             <input type="text" class="form-control" onkeyup="check_input();" id="SalePrice2"
-            placeholder="Enter Sales Price" value="<?php print $SalePrice; ?>">
+            placeholder="<?php echo __("Enter Sales Price"); ?>" value="<?php print $SalePrice; ?>">
         </div>
 
         </div>
@@ -67,21 +67,21 @@ if(!empty($_GET['id'])){
         <div class="col-md-6">
         <!-- input states -->
         <div class="form-group">
-            <label class="col-form-label" for="inputSuccess">Company</label>
+            <label class="col-form-label" for="inputSuccess"><?php echo __("Company Name"); ?></label>
             <input type="text" class="form-control" onkeyup="check_input();" id="Company2"
-            placeholder="Enter Company Name" value="<?php print $Company; ?>">
+            placeholder="<?php echo __("Enter Company Name"); ?>" value="<?php print $Company; ?>">
         </div>
 
         </div>
 
-
+  
         <div class="col-md-6">
         <!-- input states -->
 
         <div class="form-group">
-            <label class="col-form-label" for="inputSuccess">Generic Name</label>
+            <label class="col-form-label" for="inputSuccess"><?php echo __("Generic Name"); ?></label>
             <input type="text" class="form-control" onkeyup="check_input();" id="Generic2"
-            placeholder="Enter Generic Name" value="<?php print $Generic; ?>">
+            placeholder="<?php echo __("Enter Generic Name"); ?>" value="<?php print $Generic; ?>">
         </div>
 
         </div>
@@ -92,7 +92,7 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Status</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Status"); ?></label>
         <select id="Status" class="form-control select2">
           <option value="Active" <?php if($Status == "Active"){ print "Selected";} ?>>Active</option>
           <option value="Inactive" <?php if($Status == "Inactive"){ print "Selected";} ?>>Inactive</option>
@@ -104,9 +104,9 @@ if(!empty($_GET['id'])){
 
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("Close"); ?></button>
 
-    <input type="button" id="UpdateMedicine" onclick="UpdateMedicine();" value="Update Data" class="btn btn-warning">
+    <input type="button" id="UpdateMedicine" onclick="UpdateMedicine();" value="<?php echo __("Update"); ?>" class="btn btn-warning">
   </div>
 </div>
 

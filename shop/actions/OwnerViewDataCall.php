@@ -17,7 +17,7 @@ $sql = "SELECT
                 A.`CreateDate`
 
 FROM (SELECT * FROM `user_information` WHERE `Owner`='Yes') A 
-LEFT JOIN `shop` B ON A.`ShopId`=B.`Id`
+LEFT JOIN `shop` B ON A.`$ShopId`=B.`Id`
 LEFT JOIN `package` C ON B.`PackageId`=C.`Id`";
 $total_all_rows = GetOwnerAllRecords($conn);
 

@@ -12,7 +12,7 @@ include '../config/Database.php'; // Database connection file
   <div class="wrapper">
 
     <!-- Navbar -->
-    <?php include("navbar.php"); ?>
+    <?php include("Navbar.php"); ?>
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -124,7 +124,7 @@ include '../config/Database.php'; // Database connection file
     ]
   });
 
-  //Medicine Add
+  //Medicine Add/Update
       $('#modal-default1').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var ID = button.data('whatever') // Extract info from data-* attributes

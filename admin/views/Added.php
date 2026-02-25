@@ -12,7 +12,7 @@ include '../actions/Count.php'; // Count Active Data
 
 
     <!-- Navbar -->
-    <?php include 'navbar.php';?>
+    <?php include 'Navbar.php';?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -126,6 +126,24 @@ include '../actions/Count.php'; // Count Active Data
                     <!-- /.card-header -->
                     <div class="card-body">
                       Total Active Medicine <?php Print $ActiveMedicine; ?>
+                    </div>
+                    <!-- /.card-body -->
+                  </a>
+
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-3">
+                  <a href="Translation.php" class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <span class="material-icons">translate</span> Translation View</h3>
+
+                      <!-- /.card-tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                      Total Translation <?php Print $TotalTranslation; ?>
                     </div>
                     <!-- /.card-body -->
                   </a>

@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/Auth.php'; // Session Starting file
+include '../config/Database.php'; // Database connection file
 if(!empty($_GET['id'])){
 ?>
 <!-- /.card-header -->
@@ -9,9 +10,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Medicine Name</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Medicine Name"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="MedicineName" value=""
-          placeholder="Enter Medicine Name">
+          placeholder="<?php echo __("Enter Medicine Name"); ?>">
       </div>
 
     </div>
@@ -19,9 +20,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Purchase Price</label>
+        <label class="col-form-label" for="inputSuccess"> <?php echo __("Purchase Price"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="PurchasePrice" value=""
-          placeholder="Enter Purchase Price">
+          placeholder="<?php echo __("Enter Purchase Price"); ?>  ">
       </div>
 
     </div>
@@ -34,9 +35,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Unit Quantity</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Unit Quantity"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="PackSize"
-          placeholder="Enter Unit Quantity">
+          placeholder="<?php echo __("Enter Unit Quantity"); ?>">
       </div>
 
     </div>
@@ -44,9 +45,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Sales Price</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Sales Price"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input();" id="SalePrice" value=""
-          placeholder="Enter Sales Price">
+          placeholder="<?php echo __("Enter Sales Price"); ?>">
       </div>
 
     </div>
@@ -61,9 +62,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Company Name</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Company Name"); ?></label>
         <input type="text"  list="CompanyList" class="form-control" onkeyup="check_input(),CompanyList();" id="Company"
-          placeholder="Enter Company Name">
+          placeholder="<?php echo __("Enter Company Name"); ?>">
           <datalist id="CompanyList"></datalist>
 
           
@@ -74,9 +75,9 @@ if(!empty($_GET['id'])){
     <div class="col-md-6">
       <!-- input states -->
       <div class="form-group">
-        <label class="col-form-label" for="inputSuccess">Enter Generic Name</label>
+        <label class="col-form-label" for="inputSuccess"><?php echo __("Generic Name"); ?></label>
         <input type="text" class="form-control" onkeyup="check_input(),GenericList();" id="Generic" value=""
-          placeholder="Enter Generic Name" list="GenericList">
+          placeholder="<?php echo __("Enter Generic Name"); ?>" list="GenericList">
             <datalist id="GenericList"></datalist>
       </div>
 
@@ -87,7 +88,7 @@ if(!empty($_GET['id'])){
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-    <input type="button" id="AddMedicine" onclick="AddMedicine();" value="Save Data" class="btn btn-success">
+    <input type="button" id="AddMedicine" onclick="AddMedicine();" value="<?php echo __("Save Data"); ?>" class="btn btn-success">
   </div>
 
 </div>

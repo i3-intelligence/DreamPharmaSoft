@@ -28,4 +28,9 @@ include '../config/Database.php'; // Database connection file
 		$FetchMedicineCount = $QueryMedicineCount->fetch(PDO::FETCH_ASSOC);
 		$ActiveMedicine = $FetchMedicineCount['count'];
 
+		//Translation Count
+		$QueryTranslationCount = $conn->prepare("SELECT COUNT(`id`) AS `count` FROM `app_translations` ");
+		$QueryTranslationCount->execute();
+		$FetchTranslationCount = $QueryTranslationCount->fetch(PDO::FETCH_ASSOC);
+		$TotalTranslation = $FetchTranslationCount['count'];
 ?>

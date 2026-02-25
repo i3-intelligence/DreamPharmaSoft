@@ -12,7 +12,7 @@ include '../config/Database.php'; // Database connection file
   <div class="wrapper">
 
     <!-- Navbar -->
-    <?php include("navbar.php"); ?>
+    <?php include("Navbar.php"); ?>
 
 
     <!-- Content Wrapper. Contains page content -->
