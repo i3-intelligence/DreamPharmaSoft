@@ -78,7 +78,7 @@ foreach($result as $fetch)
 						$sub_array[] = "<a data-title=\"View To More Details\" class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modal-default1\"
 						data-whatever=\"$fetch[MedicineID]\">
 						<i class=\"fas fa-pencil-alt\"></i>
-						Edit
+						" . __("Update") . "
 					  </a>";
 		
 	$data[] = $sub_array;

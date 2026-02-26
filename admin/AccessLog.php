@@ -12,7 +12,8 @@ include 'Database.php'; // Database connection file
 
             source.onmessage = function (event) {
                 if (event.data == 'logout') {
-                    window.location.href = "Logout.php";
+                    window.location.href = "Login.php?notify=duplicate";
+
                     // alert(event.data);    
                 }else{
                     // alert(event.data);    

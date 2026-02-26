@@ -12,6 +12,9 @@ if($LoginCheckCount == 1){
     $Access ="login";
    }else{
     $Access ="logout";
+    include 'Session.php';
+    session_unset();
+    session_destroy();
 
    }
 

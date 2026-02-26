@@ -1,6 +1,6 @@
 <?php 
 // Db Connection
-include("../admin/config/Database.php");
+include("../admin/Database.php");
 ?>
            <div class="row mt-5 feature-row">
            <?php

@@ -37,8 +37,65 @@ include 'Database.php'; // Database connection file
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <i class="fa fa-warning"></i>
 
+              <h3 class="box-title"><?php echo __("Notice"); ?></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
 
+              <?php 
+    
+                $Notice = $conn->prepare("SELECT 
+                A.`ShopName`,
+                A.`SubscriptionStartDate`,
+                A.`SubscriptionEndDate`,
+                A.`CreateDate`,
+                B.`PackageName`
+                FROM `shop` A 
+                LEFT JOIN `package` B ON A.`PackageId`=B.`Id`
+                WHERE A.`id` = '$ShopId' ");
+                $Notice->execute();
+                $fetchNotice = $Notice->fetch(PDO::FETCH_ASSOC);
+                $PackageName = $fetchNotice['PackageName'] ?? '';
+                $endtime = $fetchNotice['SubscriptionEndDate'] ?? '';
+
+                
+              ?>
+              <?php
+              if (strtotime($endtime) < strtotime($CurrentDate)) {
+              ?>
+              <div class="alert alert-danger alert-dismissible">
+                <h4><?php print $PackageName; ?> Package</h4>
+                <p><?php echo __("Your subscription has expired on"); ?> <b><?php print date("d/M/Y",strtotime($endtime)); ?></b>. <?php echo __("Please renew your subscription to continue using our services."); ?></p>
+               <?php
+              } elseif (strtotime($endtime) < strtotime($CurrentDate . ' +7 days')) {
+              ?>
+              <div class="alert alert-warning alert-dismissible">
+                <h4><?php print $PackageName; ?> Package</h4>
+                <p><?php echo __("Your subscription will expire soon on"); ?> <b><?php print date("d/M/Y",strtotime($endtime)); ?></b>. <?php echo __("Please consider renewing your subscription to avoid any disruption in service."); ?></p>
+
+              <?php }else{ ?>
+
+               <div class="alert alert-success alert-dismissible">
+                <h4><?php print $PackageName; ?> Package | Day Left <?php echo date_diff(date_create($CurrentDate), date_create($endtime))->days; ?> Days</h4>
+                <p><?php echo __("Your subscription is active and will expire on"); ?> <b><?php print date("d/M/Y",strtotime($endtime)); ?></b>. <?php echo __("Thank you for being a valued customer!"); ?> </p>
+                
+              </div>
+              <?php } ?>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+      </div>
 
       </div><!--/. container-fluid -->
     </section>

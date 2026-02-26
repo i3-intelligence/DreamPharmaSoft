@@ -35,7 +35,7 @@ include("Database.php");
               <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1" data-backdrop='static' data-keyboard='false'
                   data-whatever="Medicine">Add New</button></li>
-                  <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                  <li class="breadcrumb-item"><a href="Dashboard.php">Home</a></li>
                   <li class="breadcrumb-item"><a href="added.php">Added Menu</a></li>
                   <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
               </ol>

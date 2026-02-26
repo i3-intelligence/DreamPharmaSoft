@@ -1,11 +1,12 @@
+<!doctype html>
+<html lang="en">
 <?php
 include 'Database.php';// Database Connection
 include 'Session.php';// Session Starting file
 if (!isset($_SESSION['CSRF'])) {
     $_SESSION['CSRF'] = bin2hex(random_bytes(32)); // Generate a new CSRF token if it doesn't exist
 }
-?><!doctype html>
-<html lang="en">
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -136,6 +137,13 @@ if (!isset($_SESSION['CSRF'])) {
         });
     </script>
  
+ 
+<?php } else if(!empty($_GET['notify']) and $_GET['notify']=='duplicate'){ ?>
+    <script>
+        $(document).ready(function () {
+            duplicate_toster();
+        });
+    </script>
  <?php } ?>
 
 <!-- partial -->
@@ -204,7 +212,7 @@ Swal.fire({
     toast: true,
     icon: 'error',
     title: 'Login Failed !',
-    footer: 'Please Check Your User Name And Password.',
+    footer: 'Please Check Your User Number And Password.',
     animation: true,
     position: 'top',
     showConfirmButton: false,
@@ -313,6 +321,26 @@ Swal.fire({
     position: 'top',
     showConfirmButton: false,
     timer: 10000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+});
+}
+
+//Duplicate Login
+function duplicate_toster() {
+Swal.fire({
+    toast: true,
+    icon: 'error',
+    title: 'Duplicate Login Detected !',
+    text: 'Your Account Is Logged In From Another Device .!',
+    footer: 'Please Login Again.',
+    animation: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 8000,
     timerProgressBar: true,
     didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)

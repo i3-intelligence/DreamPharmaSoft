@@ -26,7 +26,9 @@ require_once __DIR__ . '../../translator/Translate.php';
 
 // If session is set, fetch user data
 if (!empty($_SESSION['DPS_SHOP_SSN_ID'])) {
-    $query1 = $conn->prepare("SELECT * FROM `user_information` WHERE `id` = :id");
+    $query1 = $conn->prepare("SELECT A.*,B.`ShopName` FROM `user_information` A 
+    LEFT JOIN `shop` B ON A.`ShopId` = B.`Id`
+    WHERE A.`id` = :id");
     $query1->execute(['id' => $_SESSION['DPS_SHOP_SSN_ID']]);
     $FetchUserInfo = $query1->fetch(PDO::FETCH_ASSOC);
 
@@ -40,6 +42,7 @@ if (!empty($_SESSION['DPS_SHOP_SSN_ID'])) {
         $EditAccess = $FetchUserInfo['EditAccess'] ?? '';
         $DeleteAccess = $FetchUserInfo['DeleteAccess'] ?? '';
         $ShopId = $FetchUserInfo['ShopId'] ?? '';
+        $ShopName = $FetchUserInfo['ShopName'] ?? '';
 
         $LastUpdate = "$OperatorName Date: " . date("d-M-Y") . " Time: " . date("h:i:s a") . " IP " . $_SERVER['REMOTE_ADDR'];
         $ActivePage = basename($_SERVER['PHP_SELF'], ".php");

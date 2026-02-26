@@ -1,5 +1,7 @@
-<?php
-include("db.php"); ?>
+<?php 
+// Db Connection
+include '../admin/Database.php';// Database Connection
+?>
 <!DOCTYPE html>
 <html>
 <head>

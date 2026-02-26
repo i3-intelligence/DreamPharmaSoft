@@ -86,7 +86,7 @@ if(!empty($_GET['id'])){
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("Close"); ?></button>
 
     <input type="button" id="AddMedicine" onclick="AddMedicine();" value="<?php echo __("Save Data"); ?>" class="btn btn-success">
   </div>

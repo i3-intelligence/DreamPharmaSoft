@@ -34,9 +34,9 @@ include("Database.php");
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><button class="btn btn-success" data-toggle="modal" data-target="#modal-default1" data-backdrop='static' data-keyboard='false'
-                  data-whatever="Medicine">Add New</button></li>
-                  <li class="breadcrumb-item"><a href="home.php">Home</a></li>
-                  <li class="breadcrumb-item"><a href="added.php">Added Menu</a></li>
+                  data-whatever="Medicine"><?php echo __("Add New Setup"); ?></button></li>
+                  <li class="breadcrumb-item"><a href="Dashboard.php"><?php echo __("Home"); ?></a></li>
+                  <li class="breadcrumb-item"><a href="added.php"><?php echo __("Added Menu"); ?></a></li>
                   <li class="breadcrumb-item active"><?php print $PageLevel; ?></li>
               </ol>
             </div><!-- /.col -->
@@ -75,7 +75,7 @@ include("Database.php");
 
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title"> Medicine Add </h4>
+            <h4 class="modal-title"><?php echo __("Medicine Add"); ?></h4>
 
           </div>
           <div class="modal-body">
@@ -143,7 +143,7 @@ include("Database.php");
 
         if(ID =='Medicine'){
 
-          modal.find('.modal-title').text('Medicine Add');
+          modal.find('.modal-title').text('<?php echo __("Medicine Add"); ?>');
        
         $.ajax({
           type: "GET",

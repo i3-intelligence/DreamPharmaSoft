@@ -107,7 +107,9 @@ if(isset($sslcz['GatewayPageURL']) && $sslcz['GatewayPageURL']!="" ) {
 	# header("Location: ". $sslcz['GatewayPageURL']);
 	exit;
 } else {
-	echo "JSON Data parsing error!";
+	echo "JSON Data parsing error! <br>";
+    echo "Status: " . ($sslcz['status'] ?? 'Unknown') . "<br>";
+    echo "Message: " . ($sslcz['failedreason'] ?? 'Check your Store ID and Password');
 }
 
 }
