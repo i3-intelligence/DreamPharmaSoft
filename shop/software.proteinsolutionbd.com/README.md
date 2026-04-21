@@ -1,0 +1,30 @@
+## **Protein Solution**
+
+**Developer End**
+ 1. Insert Data Ajex Code (100 )
+ 2. Duplicate Data Check Ajex Code (102 )
+ 3. Update Data  Ajex Code (200 )
+ 4. Delete Data  Ajex Code (300 )
+ 5. Data Error Code (400) 
+ 6. Cart Not Found Error Code (404)
+ 7. Data Not Found Error Code (405)
+ 8. Data Not Found Error Code (406)
+ 9. Balance Check Cash Customer Error Code (407)
+  9. Due Check Cash Customer Error Code (408)
+**USER/Package Menu Parmission **
+
+> 	1.Added Menu  (0)
+> 	2.Medicine View (1)
+> 	3.Customer/Supplier View (2)
+> 	4.Wallet View (3)
+> 	5.Purchase Menu (4)
+> 	6.Purchase Product (5)
+> 	7.Purchase Product Return(6)
+> 	8.Product Damage(7)
+> 	9.Sales Menu (8)
+> 	10.Sales Product (9)
+> 	11.Control Menu (10)
+> 	12.Menu Parmission (11)
+> 	13.Setup Edit Parmission(12)
+> 	14.Stock Add(13)
+> 	15.Stock Write Off(14)
